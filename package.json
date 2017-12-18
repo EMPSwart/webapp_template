@@ -20,6 +20,13 @@
   },
   "homepage": "https://github.com/EMPSwart/webapp_template#readme",
   "devDependencies": {
-    "grunt": "^1.0.1"
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^7.0.0",
+    "grunt-contrib-uglify": "^3.2.1"
+  },
+  "dependencies": {
+    "grunt-minified": "0.0.6"
   }
 }
