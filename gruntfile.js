@@ -17,18 +17,17 @@ module.exports = function(grunt) {
               },
               dist: {
                 files: {
-                  'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+                  'dist/script.min.js' : 'src/script.js'
                 }
               }
             },
           minified: {
               files: {
-                src: ['<banner>', 'src/*.js'],
-                dest: 'src/script.min.js'
+                src: 'src/*.js',
+                dest: 'dist/script.min.js'
               },
                 options : {
-                    sourcemap: true,
-                    allinone: false
+                    sourcemap: false
                 }
             },
             babel: {

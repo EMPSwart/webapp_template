@@ -6,21 +6,21 @@ document.addEventListener('DOMContentLoaded', function myStart() {
 });
 
 function increase() {
-    const h = document.getElementById("body");
-    const style = window.getComputedStyle(h, null).getPropertyValue("font-size");
-    const fontSize = parseFloat(style);
+    var h = document.getElementById("body");
+    var style = window.getComputedStyle(h, null).getPropertyValue("font-size");
+    var fontSize = parseFloat(style);
     h.style.fontSize = (fontSize + 1) + 'px';
 }
 function decrease() {
-    const h = document.getElementById("body");
-    const style = window.getComputedStyle(h, null).getPropertyValue("font-size");
-    const fontSize = parseFloat(style);
+    var h = document.getElementById("body");
+    var style = window.getComputedStyle(h, null).getPropertyValue("font-size");
+    var fontSize = parseFloat(style);
     h.style.fontSize = (fontSize - 1) + 'px';
 }
 //function startVibrate() {
 //    window.navigator.vibrate(1000);
 //}
-const startVibrate = function () {
+var startVibrate = function () {
     window.navigator.vibrate(1000);
 };
 
