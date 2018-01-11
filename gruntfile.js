@@ -8,7 +8,7 @@ module.exports = function(grunt) {
               },
               dist: {
                 src: ['src/*.js'],
-                dest: 'dist/<%= pkg.name %>.js'
+                dest: 'dist/js/<%= pkg.name %>.js'
               }
         },
           uglify: {
@@ -17,14 +17,14 @@ module.exports = function(grunt) {
               },
               dist: {
                 files: {
-                  'dist/script.min.js' : 'src/script.js'
+                  'dist/js/script.js' : 'src/js/script.js'
                 }
               }
             },
           minified: {
               files: {
-                src: 'src/*.js',
-                dest: 'dist/script.min.js'
+                src: 'src/js/*.js',
+                dest: 'dist/js/'
               },
                 options : {
                     sourcemap: false
@@ -37,17 +37,38 @@ module.exports = function(grunt) {
                 },
                 dist: {
                     files: {
-                        'dist/app.js': 'src/app.js'
+                        'dist/js/app.js': 'src/js/app.js'
                     }
                 }
-            }
+            },
+            cssmin: {
+              target: {
+                files: [{
+                  expand: true,
+                  cwd: 'src/css',
+                  src: ['*.css', '!*.min.css'],
+                  dest: 'dist/css',
+                  ext: '.css'
+                }]
+              }
+            },
+            copy: {
+                main: {
+                    expand: true,
+                    cwd: 'src/',
+                    src: ['**'],
+                    dest: 'dist/'
+                },
+            },
     });
         
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-minified');
     grunt.loadNpmTasks('grunt-babel');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     
-    grunt.registerTask('default', ['minified', 'uglify', 'babel']);
+    grunt.registerTask('default', ['copy', 'minified', 'uglify', 'babel', 'cssmin']);
     
     
 };
